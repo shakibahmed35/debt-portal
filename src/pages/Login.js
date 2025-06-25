@@ -1,7 +1,7 @@
-// src/pages/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import './Login.css';
 
 const Login = () => {
   const [form, setForm] = useState({ username: '', password: '' });
@@ -20,29 +20,29 @@ const Login = () => {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div className="login-container">
       <h2>Login</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
+      {error && <p className="login-error">{error}</p>}
+      <form className="login-form" onSubmit={handleSubmit}>
+        <label>
+          Username
           <input
             type="text"
             value={form.username}
             onChange={(e) => setForm({ ...form, username: e.target.value })}
             required
           />
-        </div>
-        <div>
-          <label>Password:</label>
+        </label>
+        <label>
+          Password
           <input
             type="password"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
             required
           />
-        </div>
-        <button type="submit" style={{ marginTop: '1rem' }}>Login</button>
+        </label>
+        <button type="submit">Login</button>
       </form>
     </div>
   );

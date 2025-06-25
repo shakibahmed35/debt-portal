@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SubmitAccount.css';
 
 const SubmitAccount = () => {
   const [form, setForm] = useState({
@@ -26,30 +27,40 @@ const SubmitAccount = () => {
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div className="submit-container">
       <h2>Submit Consumer Account</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Consumer Name:</label>
+      <form className="submit-form" onSubmit={handleSubmit}>
+        <label>
+          Consumer Name
           <input name="name" value={form.name} onChange={handleChange} required />
-        </div>
-        <div>
-          <label>Account Number:</label>
+        </label>
+
+        <label>
+          Account Number
           <input name="accountNumber" value={form.accountNumber} onChange={handleChange} required />
-        </div>
-        <div>
-          <label>Amount Due:</label>
+        </label>
+
+        <label>
+          Amount Due
           <input type="number" name="amountDue" value={form.amountDue} onChange={handleChange} required />
-        </div>
-        <div>
-          <label>Due Date:</label>
+        </label>
+
+        <label>
+          Due Date
           <input type="date" name="dueDate" value={form.dueDate} onChange={handleChange} required />
-        </div>
-        <div>
-          <label>Notes:</label>
-          <textarea name="notes" value={form.notes} onChange={handleChange} />
-        </div>
-        <button type="submit" style={{ marginTop: '1rem' }}>Submit</button>
+        </label>
+
+        <label>
+          Notes
+          <textarea name="notes" value={form.notes} onChange={handleChange} rows={3} />
+        </label>
+
+        <label>
+          Supporting Document
+          <input type="file" name="file" />
+        </label>
+
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
