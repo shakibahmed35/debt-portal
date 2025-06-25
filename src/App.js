@@ -6,6 +6,8 @@ import SubmitAccount from './pages/SubmitAccount';
 import Login from './pages/Login';
 import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
+import Contracts from './pages/Contracts';
+import RoleRoute from './components/RoleRoute';
 
 function App() {
   return (
@@ -30,9 +32,17 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route
+            path="/contracts"
+            element={
+              <RoleRoute allowedRoles={['admin']}>
+                <Contracts />
+              </RoleRoute>
+            }
+          />
         </Routes>
       </Router>
-    </AuthProvider>
+    </AuthProvider> 
   );
 }
 
