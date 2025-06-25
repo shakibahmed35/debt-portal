@@ -8,6 +8,7 @@ import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 import Contracts from './pages/Contracts';
 import RoleRoute from './components/RoleRoute';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -38,6 +39,14 @@ function App() {
               <RoleRoute allowedRoles={['admin']}>
                 <Contracts />
               </RoleRoute>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
             }
           />
         </Routes>

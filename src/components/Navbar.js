@@ -16,7 +16,6 @@ const Navbar = () => {
           <li><Link to="/dashboard">Dashboard</Link></li>
           {user.role === 'admin' && (
             <>
-              <li><Link to="/upload-documents">Upload Docs</Link></li>
               <li><Link to="/contracts">Contracts</Link></li>
               {/* Add Admin tools here if needed */}
             </>
